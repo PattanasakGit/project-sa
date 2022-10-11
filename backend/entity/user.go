@@ -64,4 +64,5 @@ type Patient struct {
 	Drug_Allergy   Drug_Allergy
 	RIGHTSID       *uint
 	RIGHTS         RIGHTS
+	Other          string
 }
