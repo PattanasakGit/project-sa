@@ -18,6 +18,7 @@ type User struct {
 type Gender struct {
 	gorm.Model
 	Gender_Name string
+
 	// เพศ 1 เพศ เป็นของผู้ป่วยในได้ หลายคน
 	Patient []Patient `gorm:"foreignKey:GenderID"`
 }

@@ -28,7 +28,7 @@ func SetupDatabase() {
 
 	// //เปิดใช้งานเฉพาระตอนที่ในฐานข้อมูลว่างเปล่า เพราะจะทำการบันทึกซ้ำ
 	// //ใส่ข้อมูลที่เป็นข้อมูลที่ไม่เปลี่ยนแปลง
-	// //ตาราง หมู่เลือด
+	// //ตาราง หมู่เลือดs
 	// database.Create(&Blood_type{Blood_Name: "A"})
 	// database.Create(&Blood_type{Blood_Name: "B"})
 	// database.Create(&Blood_type{Blood_Name: "O"})

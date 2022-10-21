@@ -24,8 +24,8 @@ func main() {
 	r.GET("/ListRIGHTS", controller.ListRIGHTS)
 	r.POST("/CreateRIGHTS", controller.CreateRIGHTS)
 
-	//r.GET("/GetPatient", controller.list)
-	r.GET("/patient/:id", controller.GetPatient)
+	r.GET("/ListPatient", controller.Listpatient)
+	r.GET("/GetPatient", controller.GetPatient)
 	r.POST("/CreatePatient", controller.CreatePatient)
 
 	r.Run()

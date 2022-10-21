@@ -2,14 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import TextField from "@mui/material/TextField";
-//import Button from "@mui/material/Button";
-//import FormControl from "@mui/material/FormControl";
 import Container from "@mui/material/Container";
 import { AppBar, Button, FormControl, IconButton, Paper, Toolbar, Typography } from '@mui/material';
-//import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-//import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
@@ -17,11 +13,10 @@ import { PatientInterface,GenderInterface,RIGHTSInterface,Blood_typeInterface,Dr
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import Autocomplete from '@mui/lab/Autocomplete';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-//import lightgreen from '@mui/material/colors'
+
 
 //ฟังค์ชันสำหรับ alert
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
@@ -115,6 +110,7 @@ const handleChange = (
      Other: patient.Other ?? "",    
   };
 
+    //check data
     console.log(data)
 
 
@@ -136,6 +132,17 @@ const handleChange = (
          setError(true);
        }
      });
+
+     // reset All after Submit
+     setGenderID("");
+     setDate(null);
+     setblood_typeID("");
+     setDrug_AllergyID("");
+     setRIGHTSID("");
+     setPatient({});
+
+     
+
  }
 /////////////////////////////////////////////-_ ส่วนของการโหลดและดึงค่ามาใช้(ใช้กับ Combobox) _-//////////////////////////////////////////////////////////
 
@@ -233,12 +240,18 @@ return (
          บันทึกข้อมูลสำเร็จ
        </Alert>
      </Snackbar>
-     <Snackbar open={error} autoHideDuration={6000} onClose={handleClose}>
+
+     <Snackbar open={error}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+     >
+
        <Alert onClose={handleClose} severity="error">
          บันทึกข้อมูลไม่สำเร็จ
        </Alert>
      </Snackbar>
-
+     
      
      <Paper >
 
@@ -257,8 +270,11 @@ return (
              //align="center"
              fontFamily="Arial"
            >
+             <hr color="Green"/>
              <b>ระบบบันทึกข้อมูลผู้ป่วยใน</b>
+             <hr color="Green"/>
            </Typography>
+           
 
          </Box>
        </Box>

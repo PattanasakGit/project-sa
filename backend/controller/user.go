@@ -23,25 +23,25 @@ func CreateUser(c *gin.Context) {
 
 }
 
-// GET /user/:id
+// // GET /user/:id
 // func GetUser(c *gin.Context) {
-// 	var user entity.Map_Bed
+// 	var user entity.User
 // 	id := c.Param("id")
 // 	if err := entity.DB().Raw("SELECT * FROM users WHERE id = ?", id).Scan(&user).Error; err != nil {
-// 		 c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-// 		 return
+// 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+// 		return
 // 	}
 
 // 	c.JSON(http.StatusOK, gin.H{"data": user})
 // }
 
-// // GET /users
-// func ListUsers(c *gin.Context) {
-// 	var users []entity.Map_Bed
-// 	if err := entity.DB().Raw("SELECT * FROM users").Scan(&users).Error; err != nil {
-// 		 c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-// 		 return
-// 	}
+// // GET /usrs
+// func ListUsers(c *gin.Context {
+// 	var users []entity.Uer
+// 	if err := entity.DB().Raw("SELECT * FROM users").Scan(&users).Error; err != ni {
+// 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error(})
+// 		retrn
+//	}
 
-// 	c.JSON(http.StatusOK, gin.H{"data": users})
+// 	c.JSON(http.StatusOK, gin.H{"data": user})
 // }
