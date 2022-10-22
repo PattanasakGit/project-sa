@@ -12,6 +12,9 @@ func main() {
 	r := gin.Default()
 	r.Use(CORSMiddleware())
 
+	r.GET("/GetUser", controller.GetUser)
+	r.POST("/CreateUser", controller.CreateUser)
+
 	r.GET("/ListBlood_type", controller.ListBlood_type)
 	r.POST("/CreateBlood_type", controller.CreateBlood_type)
 
