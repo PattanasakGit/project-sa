@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// POST /videos
+// POST / สำหรับสร้างข้อมูล
 func CreateDrug_Allergy(c *gin.Context) {
 	var Drug_Allergy entity.Drug_Allergy
 	if err := c.ShouldBindJSON(&Drug_Allergy); err != nil {
@@ -22,7 +22,7 @@ func CreateDrug_Allergy(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": Drug_Allergy})
 }
 
-// GET /video/:id
+// GET / แบบเฉพาะเจะจง
 func GetDrug_Allergy(c *gin.Context) {
 	var Drug_Allergy entity.Drug_Allergy
 
@@ -35,7 +35,7 @@ func GetDrug_Allergy(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": Drug_Allergy})
 }
 
-// GET /videos
+// GET /ทั้งหมด
 func ListDrug_Allergy(c *gin.Context) {
 	var Drug_Allergy []entity.Drug_Allergy
 	if err := entity.DB().Raw("SELECT * FROM drug_allergies").Find(&Drug_Allergy).Error; err != nil {
@@ -46,7 +46,7 @@ func ListDrug_Allergy(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": Drug_Allergy})
 }
 
-// PATCH /videos
+// PATCH /สำหรับการอัพเตค่า **แต่ไม่ได้ใช้ในระบบย่อยนี้**
 func UpdateDrug_Allergy(c *gin.Context) {
 	var Drug_Allergy entity.Drug_Allergy
 	if err := c.ShouldBindJSON(&Drug_Allergy); err != nil {

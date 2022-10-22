@@ -7,14 +7,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// POST /videos
+// POST/Blood_types สำหรับ สร้างข้อมูล
 func CreateBlood_type(c *gin.Context) {
 	var Blood_type entity.Blood_type
 	if err := c.ShouldBindJSON(&Blood_type); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-
 	if err := entity.DB().Create(&Blood_type).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -22,7 +21,7 @@ func CreateBlood_type(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": Blood_type})
 }
 
-// GET /video/:id
+// GET/Blood_types/:id
 func GetBlood_type(c *gin.Context) {
 	var Blood_type entity.Blood_type
 
@@ -31,11 +30,10 @@ func GetBlood_type(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-
 	c.JSON(http.StatusOK, gin.H{"data": Blood_type})
 }
 
-// GET /videos
+// GET /Blood_types สำหรับเรียกดูข้อมูลทั้งหมด เอาไปใช้กับ combobox ใน fontend
 func ListBlood_type(c *gin.Context) {
 	var Blood_type []entity.Blood_type
 	if err := entity.DB().Raw("SELECT * FROM Blood_types").Find(&Blood_type).Error; err != nil {
@@ -46,7 +44,7 @@ func ListBlood_type(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": Blood_type})
 }
 
-// PATCH /videos
+// PATCH /Blood_types  สำหรับการอัพเตค่า **แต่ไม่ได้ใช้ในระบบย่อยนี้**
 func UpdateBlood_type(c *gin.Context) {
 	var Blood_type entity.Blood_type
 	if err := c.ShouldBindJSON(&Blood_type); err != nil {

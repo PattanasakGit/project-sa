@@ -34,16 +34,10 @@ function PatientCreate() {
    const [GenderID, setGenderID] = useState('');
    const [RIGHTSID, setRIGHTSID] = useState('');
   
-
-
- const [Date_of_Birth, setDate] = React.useState<Date | null>(null);
- //const [Drug_Allergy, setDrug_Allergy] = React.useState<UsersInterface[]>([]);
- //const [Blood_type, setblood_type] = React.useState<UsersInterface[]>([]); 
- //const [Gender, setGender] = React.useState<UsersInterface[]>([]);
- //const [RIGHTS, setRIGHTS] = React.useState<UsersInterface[]>([]);
- const [patient, setPatient] = React.useState<Partial<PatientInterface>>({});
- const [success, setSuccess] = React.useState(false);
- const [error, setError] = React.useState(false);
+  const [Date_of_Birth, setDate] = React.useState<Date | null>(null);
+  const [patient, setPatient] = React.useState<Partial<PatientInterface>>({});
+  const [success, setSuccess] = React.useState(false);
+  const [error, setError] = React.useState(false);
  
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
  const handleClose = (
@@ -89,6 +83,7 @@ const handleChange = (
   const onChangeRIGHTS = (event: SelectChangeEvent) => {
     setRIGHTSID(event.target.value as string);
   };
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
   const convertType = (data: string | number | undefined) => {
     let val = typeof data === "string" ? parseInt(data) : data;
@@ -98,11 +93,11 @@ const handleChange = (
   //ฟังก์ชันนี้ สำหรับการกดปุ่ม submit จะทำการสร้างข้อมูลต่าง ๆ เพื่อส่งไปทำการบันทึกที่ backend
   function submit() {
    let data = {
-     //Name: user.Name ?? "",            //ยังไม่ได้ทำ ดึงมาจากระบบlogin
-     ID_Card: patient.ID_Card ?? "",   //patient.name คือการดึงค่าจากค่า Name ที่เก็บไว้ข้างใน Patient อีกทีมาใช้
+     //Name: user.Name ?? "",                  //ยังไม่ได้ทำ ดึงมาจากระบบlogin
+     ID_Card: patient.ID_Card ?? "",           //patient.name คือการดึงค่าจากค่า Name ที่เก็บไว้ข้างใน Patient อีกทีมาใช้
      Patient_Name: patient.Name ?? "",
      Date_of_Birth: Date_of_Birth,
-     GenderID: convertType(GenderID),  //GenderID != patient.GenderID บรรทัดนี้ น้ำค่า GenderID ที่ประกาศไว้ด้านบนมาใช้เลย 
+     GenderID: convertType(GenderID),          //GenderID != patient.GenderID บรรทัดนี้ น้ำค่า GenderID ที่ประกาศไว้ด้านบนมาใช้เลย 
      Blood_typeID: convertType(Blood_typeID),
      Drug_AllergyID: convertType(Drug_AllergyID),
      RightsID: convertType(RIGHTSID),
@@ -112,7 +107,6 @@ const handleChange = (
 
     //check data
     console.log(data)
-
 
    const apiUrl = "http://localhost:8080/CreatePatient";
    const requestOptions = {
@@ -133,6 +127,7 @@ const handleChange = (
        }
      });
 
+
      // reset All after Submit
      setGenderID("");
      setDate(null);
@@ -141,7 +136,6 @@ const handleChange = (
      setRIGHTSID("");
      setPatient({});
 
-     
 
  }
 /////////////////////////////////////////////-_ ส่วนของการโหลดและดึงค่ามาใช้(ใช้กับ Combobox) _-//////////////////////////////////////////////////////////
@@ -217,8 +211,8 @@ const handleChange = (
   };
 
     //useEffect เป็นการเรียกใช้งานฟังก์ชัน useEffect เมื่อ component นั้นเกิดการเปลี่ยนแปลงค่าของ state ที่เราเล็งเอาไว้ หรือหากไม่กำหนดค่า state ที่เล็งเอาไว้ การทำงานของ useEffect จะทำงานเพียงครั้งเดียวคือก่อน component นั้นจะถูกแสดงขึ้นมา
-    //อ่านเพิ่มเพราะส่วนนี้ยังไม่ค่อยเข้าใจ
-    useEffect(() => {       
+      
+      useEffect(() => {       
       getBlood_type();
       getGender();
       getDrug_Allergy();
@@ -274,8 +268,6 @@ return (
              <b>ระบบบันทึกข้อมูลผู้ป่วยใน</b>
              <hr color="Green"/>
            </Typography>
-           
-
          </Box>
        </Box>
        <Divider />
@@ -318,6 +310,7 @@ return (
              />
            </FormControl>
          </Grid>
+
 
 
          {/* <Grid  container spacing={2} sx={{padding:2}}> */}
@@ -367,11 +360,9 @@ return (
             </Grid>
 
 
-     {/* </Grid> */}
 
 
-     <Grid item xs={3}>
-         {/* <FormControl fullWidth variant="outlined"> */}
+          <Grid item xs={3}>
           <p>หมู่เลือด</p>
           </Grid>
           <Grid item xs={9}>
@@ -397,7 +388,6 @@ return (
 
 
           <Grid item xs={3}>
-          {/* <FormControl fullWidth variant="outlined"> */}
             <p>แพ้ยา</p>
             </Grid>
             <Grid item xs={9}>
@@ -418,6 +408,8 @@ return (
                 </Select>
               </FormControl>
             </Grid>
+
+
 
 
             <Grid item xs={3}>

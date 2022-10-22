@@ -40,7 +40,7 @@ func CreatePatient(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "RIGHTSID not found"})
 		return
 	}
-	// 15: ค้นหา สิทธิ์การรักษา ด้วย id
+	// 15: สร้างข้อมูลใน patient
 	pt := entity.Patient{
 		ID_Card:       patient.ID_Card,
 		Patient_Name:  patient.Patient_Name,

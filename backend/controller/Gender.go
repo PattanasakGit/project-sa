@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// POST /videos
+// POST /สำหรับสร้างข้อมูล
 func CreateGender(c *gin.Context) {
 	var Gender entity.Gender
 	if err := c.ShouldBindJSON(&Gender); err != nil {
@@ -22,7 +22,7 @@ func CreateGender(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": Gender})
 }
 
-// GET /video/:id
+// GET / แบบเฉพาพเจาะจง
 func GetGender(c *gin.Context) {
 	var Gender entity.Gender
 
@@ -35,7 +35,7 @@ func GetGender(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": Gender})
 }
 
-// GET /videos
+// GET /
 func ListGender(c *gin.Context) {
 	var Gender []entity.Gender
 	if err := entity.DB().Raw("SELECT * FROM Genders").Find(&Gender).Error; err != nil {
@@ -46,7 +46,7 @@ func ListGender(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": Gender})
 }
 
-// PATCH /videos
+// PATCH / สำหรับการอัพเตค่า **แต่ไม่ได้ใช้ในระบบย่อยนี้**
 func UpdateGender(c *gin.Context) {
 	var Gender entity.Gender
 	if err := c.ShouldBindJSON(&Gender); err != nil {

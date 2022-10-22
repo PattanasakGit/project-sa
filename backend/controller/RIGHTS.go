@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// POST /videos
+// POST / สำรับสร้างข้อมูล
 func CreateRIGHTS(c *gin.Context) {
 	var RIGHTS entity.RIGHTS
 	if err := c.ShouldBindJSON(&RIGHTS); err != nil {
@@ -22,7 +22,7 @@ func CreateRIGHTS(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": RIGHTS})
 }
 
-// GET /video/:id
+// GET / แบบเฉพาะเจาะจง
 func GetRIGHTS(c *gin.Context) {
 	var RIGHTS entity.RIGHTS
 
@@ -35,7 +35,7 @@ func GetRIGHTS(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": RIGHTS})
 }
 
-// GET /videos
+// GET / สำหรับเรียกดูข้อมูลทั้งหมด เอาไปใช้กับ combobox ใน fontend
 func ListRIGHTS(c *gin.Context) {
 	var RIGHTS []entity.RIGHTS
 	if err := entity.DB().Raw("SELECT * FROM rights").Find(&RIGHTS).Error; err != nil {
@@ -46,7 +46,7 @@ func ListRIGHTS(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": RIGHTS})
 }
 
-// PATCH /videos
+// PATCH /สำหรับการอัพเตค่า **แต่ไม่ได้ใช้ในระบบย่อยนี้**
 func UpdateRIGHTS(c *gin.Context) {
 	var RIGHTS entity.RIGHTS
 	if err := c.ShouldBindJSON(&RIGHTS); err != nil {
