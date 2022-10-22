@@ -1,5 +1,5 @@
 ## Update
-1. ได้ทำการรวม controller ทั้งหมดไว้เป็นไฟล์เดียว --> backend/controller/PatientController.go 
+1. ได้ทำการรวม controller ทั้งหมดไว้เป็นไฟล์เดียว --> backend/controller/PatientController.go เอาไว้กรณีรวมงาน
 2. ได้ทำการแก้ไขในส่วนของ schema ทำการเพิ่ม `gorm:"references:id"` (ที่จั๊ดลืมไว้) ตอนนี้เพิ่มเรียบร้อยแล้ว
 ## สถานะ ของโปรแกรม
 1. รันได้
