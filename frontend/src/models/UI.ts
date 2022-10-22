@@ -18,7 +18,7 @@ export interface PatientInterface {
     UserID:number
     User:UsersInterface
 }
-export interface UsersInterface {
+export interface UsersInterface {  // add data whan add user
     ID: string,
 }
 export interface Blood_typeInterface {
